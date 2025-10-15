@@ -3,138 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi Tool Hub</title>
+    <title>Pocket Pro - Your All-in-One Tool Suite</title>
     <style>
+        /* CSS Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
 
+        /* Global Styles */
         body {
-            background: #1E1E2F;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1E1E2F;
             color: #EAEAEA;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #2B2D42;
+            padding: 1.5rem 0;
             text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        .header {
-            background: #2B2D42;
-            padding: 20px;
-            font-size: 24px;
-            font-weight: bold;
-            color: #FFD700;
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
 
-        .container {
+        h1 {
+            font-size: 2.5rem;
+            color: #F5F5DC; /* Cream color */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Main Content Styles */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .intro h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #F5F5DC; /* Cream color */
+        }
+
+        .intro p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #CCCCCC;
+        }
+
+        /* Tools Grid */
+        .tools-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            max-width: 900px;
-            margin: 40px auto;
+            gap: 1.5rem;
         }
 
+        /* Tool Card Styles */
         .tool-card {
-            background: #3A3D5B;
-            padding: 20px;
+            background-color: #3A3D5B;
             border-radius: 10px;
-            text-align: center;
-            transition: 0.3s;
-            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2);
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(245, 245, 220, 0.2); /* Cream shadow */
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .tool-card:hover {
-            background: #FFD700;
+            background-color: #F5F5DC; /* Cream color */
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(245, 245, 220, 0.3); /* Cream shadow */
+        }
+
+        .tool-card:hover h3,
+        .tool-card:hover p {
             color: #1E1E2F;
         }
 
-        .tool-card h2 {
-            margin-bottom: 10px;
+        .tool-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: #F5F5DC; /* Cream color */
         }
 
+        .tool-card p {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            color: #CCCCCC;
+        }
+
+        /* Button Styles */
         .btn {
             display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background: #FFD700;
+            background-color: #F5F5DC; /* Cream color */
             color: #1E1E2F;
+            padding: 0.8rem 1.5rem;
             border: none;
             border-radius: 5px;
+            font-weight: bold;
             cursor: pointer;
-            transition: 0.3s;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1rem;
         }
 
         .btn:hover {
-            background: #E6C200;
+            background-color: #E8E8D0; /* Slightly darker cream */
         }
 
+        /* Footer Styles */
+        footer {
+            background-color: #2B2D42;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        footer p {
+            color: #CCCCCC;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
+            .tools-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .intro h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tool-card {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="header">Multi Tool Hub</div>
-    
-    <div class="container">
-        <div class="tool-card">
-            <h2>Image Converter</h2>
-            <p>Convert images to different formats easily.</p>
-            <button class="btn" onclick="goToSection('image-converter')">Go to Tool</button>
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <h1>pocket pro</h1>
         </div>
+    </header>
 
-        <div class="tool-card">
-            <h2>Image Compressor</h2>
-            <p>Compress images without losing quality.</p>
-            <button class="btn" onclick="goToSection('image-compressor')">Go to Tool</button>
+    <!-- Main Content -->
+    <main>
+        <section class="intro">
+            <h2>Your All-in-One Digital Toolkit</h2>
+            <p>Pocket Pro offers a suite of essential tools to simplify your digital tasks. From image processing to financial calculations, we've got you covered.</p>
+        </section>
+
+        <!-- Tools Grid -->
+        <section class="tools-grid">
+            <!-- Image Converter -->
+            <div class="tool-card">
+                <h3>Image Converter</h3>
+                <p>Convert your images between various formats like JPG, PNG, WEBP, and more with just a few clicks.</p>
+                <button class="btn" onclick="redirectToTool('Image Converter')">Use Tool</button>
+            </div>
+
+            <!-- Image Compressor -->
+            <div class="tool-card">
+                <h3>Image Compressor</h3>
+                <p>Reduce image file sizes without compromising quality to save storage and improve loading times.</p>
+                <button class="btn" onclick="redirectToTool('Image Compressor')">Use Tool</button>
+            </div>
+
+            <!-- Image Crop -->
+            <div class="tool-card">
+                <h3>Image Crop</h3>
+                <p>Crop and resize your images to the perfect dimensions for social media, websites, or personal use.</p>
+                <button class="btn" onclick="redirectToTool('Image Crop')">Use Tool</button>
+            </div>
+
+            <!-- Video Converter -->
+            <div class="tool-card">
+                <h3>Video Converter</h3>
+                <p>Convert videos between popular formats like MP4, AVI, MOV, and more with high quality output.</p>
+                <button class="btn" onclick="redirectToTool('Video Converter')">Use Tool</button>
+            </div>
+
+            <!-- Age Calculator -->
+            <div class="tool-card">
+                <h3>Age Calculator</h3>
+                <p>Calculate your exact age in years, months, and days based on your birth date.</p>
+                <button class="btn" onclick="redirectToTool('Age Calculator')">Use Tool</button>
+            </div>
+
+            <!-- EMI Calculator -->
+            <div class="tool-card">
+                <h3>EMI Calculator</h3>
+                <p>Calculate your Equated Monthly Installments for loans with different interest rates and tenures.</p>
+                <button class="btn" onclick="redirectToTool('EMI Calculator')">Use Tool</button>
+            </div>
+
+            <!-- SIP Calculator -->
+            <div class="tool-card">
+                <h3>SIP Calculator</h3>
+                <p>Plan your investments with our Systematic Investment Plan calculator to estimate returns.</p>
+                <button class="btn" onclick="redirectToTool('SIP Calculator')">Use Tool</button>
+            </div>
+
+            <!-- Audio Trim -->
+            <div class="tool-card">
+                <h3>Audio Trim</h3>
+                <p>Trim and edit your audio files to remove unwanted parts or create perfect sound clips.</p>
+                <button class="btn" onclick="redirectToTool('Audio Trim')">Use Tool</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 Pocket Pro. All rights reserved.</p>
+            <p>Your go-to solution for everyday digital tasks.</p>
         </div>
+    </footer>
 
-        <div class="tool-card">
-            <h2>Image Crop</h2>
-            <p>Crop images to the desired size and dimensions.</p>
-            <button class="btn" onclick="goToSection('image-crop')">Go to Tool</button>
-        </div>
-
-        <div class="tool-card">
-            <h2>Video Converter</h2>
-            <p>Convert videos to different formats quickly.</p>
-            <button class="btn" onclick="goToSection('video-converter')">Go to Tool</button>
-        </div>
-
-        <div class="tool-card">
-            <h2>Age Calculator</h2>
-            <p>Find your exact age in years, months, and days.</p>
-            <button class="btn" onclick="goToSection('age-calculator')">Go to Tool</button>
-        </div>
-
-        <div class="tool-card">
-            <h2>EMI Calculator</h2>
-            <p>Calculate your loan EMIs quickly.</p>
-            <button class="btn" onclick="goToSection('emi-calculator')">Go to Tool</button>
-        </div>
-
-        <div class="tool-card">
-            <h2>SIP Calculator</h2>
-            <p>Calculate your SIP returns effortlessly.</p>
-            <button class="btn" onclick="goToSection('sip-calculator')">Go to Tool</button>
-        </div>
-
-        <div class="tool-card">
-            <h2>Audio Trim</h2>
-            <p>Trim audio files to your required length.</p>
-            <button class="btn" onclick="goToSection('audio-trim')">Go to Tool</button>
-        </div>
-    </div>
-
+    <!-- JavaScript -->
     <script>
-        function goToSection(sectionId) {
-            alert('Redirecting to ' + sectionId + ' (Page under development)');
-            // Replace with actual navigation logic when the pages are ready
+        function redirectToTool(toolName) {
+            alert(`Redirecting to ${toolName}`);
+            // In a real implementation, this would navigate to the actual tool page
+            // window.location.href = `/${toolName.toLowerCase().replace(' ', '-')}`;
         }
     </script>
 </body>
 </html>
-
-  
